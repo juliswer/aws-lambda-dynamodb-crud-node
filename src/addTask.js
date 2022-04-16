@@ -18,9 +18,7 @@ const addTask = async (event) => {
   await dynamodb
     .put({
       TableName: "TaskTable",
-      Item: {
-        newTask,
-      },
+      Item: newTask
     })
     .promise();
 
