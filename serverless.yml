@@ -23,8 +23,8 @@ functions:
     handler: src/addTask.addTask
     events:
       - httpApi:
-          path: /
-          method: get
+          path: /tasks
+          method: post
 
 resources:
   Resources:
