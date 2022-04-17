@@ -11,9 +11,10 @@ const updateTask = async (event) => {
     .update({
       TableName: "TaskTable",
       Key: { id },
-      UpdateExpression: "set done = :done",
+      UpdateExpression: "set title = :title, description = :description",
       ExpressionAttributeValues: {
-        ":done": true,
+        ":title": title,
+        ":description": description,
       },
       ReturnValues: "ALL_NEW",
     })
