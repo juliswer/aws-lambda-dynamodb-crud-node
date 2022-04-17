@@ -1,25 +1,29 @@
 const AWS = require("aws-sdk");
 
 const deleteTask = async (event) => {
-  const dynamodb = new AWS.DynamoDB.DocumentClient();
+  try {
+    const dynamodb = new AWS.DynamoDB.DocumentClient();
 
-  const { id } = event.pathParameters;
+    const { id } = event.pathParameters;
 
-  await dynamodb
-    .delete({
-      TableName: "TaskTable",
-      Key: {
-        id,
+    await dynamodb
+      .delete({
+        TableName: "TaskTable",
+        Key: {
+          id,
+        },
+      })
+      .promise();
+
+    return {
+      status: 200,
+      body: {
+        message: "Task deleted",
       },
-    })
-    .promise();
-
-  return {
-    status: 200,
-    body: {
-      message: "Task deleted",
-    },
-  };
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports = {
