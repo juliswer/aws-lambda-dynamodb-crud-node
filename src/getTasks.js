@@ -15,7 +15,7 @@ const getTasks = async (event) => {
     console.log(tasks);
 
     return {
-      statusCode: 200,
+      status: 200,
       body: {
         tasks,
       },
