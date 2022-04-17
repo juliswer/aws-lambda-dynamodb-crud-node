@@ -12,9 +12,13 @@ const getTasks = async (event) => {
 
     const tasks = result.Items;
 
+    console.log(tasks);
+
     return {
       statusCode: 200,
-      body: tasks,
+      body: {
+        tasks,
+      },
     };
   } catch (error) {
     console.log(error);
