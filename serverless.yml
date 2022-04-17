@@ -25,6 +25,12 @@ functions:
       - httpApi:
           path: /tasks
           method: get
+  getTask:
+    handler: src/getTask.getTask
+    events:
+      - httpApi:
+          path: /tasks/{id}
+          method: get
   createTask:
     handler: src/addTask.addTask
     events:
